@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import "./Cell.css"
+// import React, {Component} from 'react'
+// import "./Cell.css"
 
 
 /** A single cell on the board.
@@ -15,25 +15,44 @@ import "./Cell.css"
  *
  **/
 
-class Cell extends Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
+// class Cell extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.handleClick = this.handleClick.bind(this);
+//   }
 
-  handleClick(evt) {
-    // call up to the board to flip cells around this cell
-    this.props.flipCellsAroundMe();
-  }
+//   handleClick(evt) {
+//     // call up to the board to flip cells around this cell
+//     this.props.flipCellsAroundMe();
+//   }
 
-  render() {
-    let classes = "Cell" + (this.props.isLit ? " Cell-lit" : "");
+//   render() {
+//     let classes = "Cell" + (this.props.isLit ? " Cell-lit" : "");
 
+//     return (
+//         <td className={classes} onClick={this.handleClick} />
+//     )
+//   }
+// }
+
+
+// export default Cell
+
+
+import React, { useContext, useState, useRef } from 'react'
+import "./Cell.css"
+
+
+const Account = ({flipCellsAroundMe, isLit}) => {
+
+ const  handleClick=(e)=> {  
+         flipCellsAroundMe();
+ }
+ let classes = "Cell" + (isLit ? " Cell-lit" : "");
     return (
-        <td className={classes} onClick={this.handleClick} />
+        <td className={classes} onClick={(e)=>{
+            handleClick(e)
+        }} />
     )
-  }
-}
-
-
-export default Cell
+    }
+export default Account
